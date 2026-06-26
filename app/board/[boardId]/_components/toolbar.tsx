@@ -6,7 +6,8 @@ import {
   Square, 
   StickyNote, 
   Type,
-  Undo2
+  Undo2,
+  Eraser
 } from "lucide-react";
 
 import { CanvasMode, CanvasState, LayerType } from "@/types/canvas";
@@ -103,6 +104,16 @@ export const Toolbar = ({
           })}
           isActive={
             canvasState.mode === CanvasMode.Pencil
+          }
+        />
+        <ToolButton
+          label="Eraser"
+          icon={Eraser}
+          onClick={() => setCanvasState({
+            mode: CanvasMode.Eraser,
+          })}
+          isActive={
+            canvasState.mode === CanvasMode.Eraser
           }
         />
       </div>

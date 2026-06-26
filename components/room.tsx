@@ -30,6 +30,7 @@ export const Room = ({
       initialStorage={{
         layers: new LiveMap<string, LiveObject<Layer>>(),
         layerIds: new LiveList(),
+        boardBgColor: "#ffffff",
       }}
     >
       <ClientSideSuspense fallback={fallback}>
