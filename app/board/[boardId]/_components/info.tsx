@@ -51,9 +51,9 @@ export const Info = ({
           </Link>
         </Button>
       </Hint>
-      <Hint label="Go to boards" side="bottom" sideOffset={10}>
+      <Hint label="Go to home" side="bottom" sideOffset={10}>
         <Button asChild variant="board" className="px-2 hover:bg-slate-100/50 transition">
-          <Link href="/dashboard">
+          <Link href="/">
             <Image
               src="/logo.svg"
               alt="Nexora Logo"
