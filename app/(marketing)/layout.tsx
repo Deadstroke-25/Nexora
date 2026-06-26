@@ -115,7 +115,7 @@ export default async function MarketingLayout({
             </span>
           </div>
           <p className="text-slate-500 text-center md:text-left">
-            &copy; {new Date().getFullYear()} Nexora. All rights reserved. Built for modern, real-time collaboration.
+            Built by Suprojeet Sonar
           </p>
           <div className="flex gap-x-6">
             <Link href="#features" className="hover:text-slate-300 transition-colors">
@@ -124,7 +124,7 @@ export default async function MarketingLayout({
             <Link href="#tech-stack" className="hover:text-slate-300 transition-colors">
               Stack
             </Link>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition-colors">
+            <a href="https://github.com/Deadstroke-25/Nexora" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300 transition-colors">
               GitHub
             </a>
           </div>
