@@ -1,11 +1,15 @@
 "use client";
 
+import Link from "next/link";
+import { Home } from "lucide-react";
 import { 
   UserButton, 
   OrganizationSwitcher, 
   useOrganization
 } from "@clerk/nextjs";
 
+import { Hint } from "@/components/hint";
+import { Button } from "@/components/ui/button";
 import { SearchInput } from "./search-input";
 import { InviteButton } from "./invite-button";
 
@@ -44,7 +48,14 @@ export const Navbar = () => {
       {organization && (
         <InviteButton />
       )}
-      <UserButton />
+      <Hint label="Back to home" side="bottom" sideOffset={10}>
+        <Button asChild variant="ghost" size="icon" className="h-9 w-9 rounded-full hover:bg-slate-100">
+          <Link href="/">
+            <Home className="h-4 w-4 text-slate-600" />
+          </Link>
+        </Button>
+      </Hint>
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 };

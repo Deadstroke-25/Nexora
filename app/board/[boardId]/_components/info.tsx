@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import { ArrowLeft, Menu } from "lucide-react";
 import { useQuery } from "convex/react";
 import { Poppins } from "next/font/google";
 
@@ -43,21 +43,29 @@ export const Info = ({
   if (!data) return <InfoSkeleton />;
 
   return (
-    <div className="absolute top-2 left-2 bg-white rounded-md px-1.5 h-12 flex items-center shadow-md">
+    <div className="absolute top-2 left-2 bg-white/90 backdrop-blur-md rounded-xl px-2 h-12 flex items-center shadow-md border border-slate-200/50">
+      <Hint label="Back to dashboard" side="bottom" sideOffset={10}>
+        <Button asChild size="icon" variant="board" className="h-8 w-8 hover:bg-slate-100/50 transition mr-1">
+          <Link href="/dashboard">
+            <ArrowLeft className="h-4 w-4 text-slate-700" />
+          </Link>
+        </Button>
+      </Hint>
       <Hint label="Go to boards" side="bottom" sideOffset={10}>
-        <Button asChild variant="board" className="px-2">
-          <Link href="/">
+        <Button asChild variant="board" className="px-2 hover:bg-slate-100/50 transition">
+          <Link href="/dashboard">
             <Image
               src="/logo.svg"
-              alt="Board logo"
-              height={40}
-              width={40}
+              alt="Nexora Logo"
+              height={32}
+              width={32}
+              className="rounded"
             />
             <span className={cn(
-              "font-semibold text-xl ml-2 text-black",
+              "font-bold text-lg ml-2 bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent",
               font.className,
             )}>
-              Board
+              Nexora
             </span>
           </Link>
         </Button>
@@ -94,7 +102,7 @@ export const Info = ({
 export const InfoSkeleton = () => {
   return (
     <div 
-      className="absolute top-2 left-2 bg-white rounded-md px-1.5 h-12 flex items-center shadow-md w-[300px]"
+      className="absolute top-2 left-2 bg-white/90 backdrop-blur-md rounded-xl px-2 h-12 flex items-center shadow-md w-[300px] border border-slate-200/50"
     />
   );
 };

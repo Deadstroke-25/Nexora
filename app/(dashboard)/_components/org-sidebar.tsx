@@ -20,20 +20,21 @@ export const OrgSidebar = () => {
   const favorites = searchParams.get("favorites");
 
   return (
-    <div className="hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-5">
-      <Link href="/">
+    <div className="hidden lg:flex flex-col space-y-6 w-[206px] pl-5 pt-5 border-r border-slate-200/30 bg-slate-50/20 backdrop-blur-md h-full">
+      <Link href="/dashboard">
         <div className="flex items-center gap-x-2">
           <Image
             src="/logo.svg"
             alt="Logo"
-            height={60}
-            width={60}
+            height={44}
+            width={44}
+            className="rounded-lg shadow-sm"
           />
           <span className={cn(
-            "font-semibold text-2xl",
+            "font-bold text-xl bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-600 bg-clip-text text-transparent",
             font.className,
           )}>
-            Board
+            Nexora
           </span>
         </div>
       </Link>
@@ -63,10 +64,13 @@ export const OrgSidebar = () => {
           variant={favorites ? "ghost" : "secondary"}
           asChild
           size="lg"
-          className="font-normal justify-start px-2 w-full"
+          className={cn(
+            "font-medium justify-start px-3 w-full rounded-xl transition-all duration-200",
+            !favorites && "shadow-sm bg-white border border-slate-200/50 hover:bg-slate-50"
+          )}
         >
-          <Link href="/">
-            <LayoutDashboard className="h-4 w-4 mr-2" />
+          <Link href="/dashboard">
+            <LayoutDashboard className="h-4 w-4 mr-2 text-indigo-600" />
             Team boards
           </Link>
         </Button>
@@ -74,13 +78,16 @@ export const OrgSidebar = () => {
           variant={favorites ? "secondary" : "ghost"}
           asChild
           size="lg"
-          className="font-normal justify-start px-2 w-full"
+          className={cn(
+            "font-medium justify-start px-3 w-full rounded-xl transition-all duration-200",
+            favorites && "shadow-sm bg-white border border-slate-200/50 hover:bg-slate-50"
+          )}
         >
           <Link href={{
-            pathname: "/",
+            pathname: "/dashboard",
             query: { favorites: true }
           }}>
-            <Star className="h-4 w-4 mr-2" />
+            <Star className={cn("h-4 w-4 mr-2", favorites ? "text-amber-500 fill-amber-500" : "text-amber-500")} />
             Favorite boards
           </Link>
         </Button>

@@ -5,7 +5,7 @@ import { ConvexHttpClient } from "convex/browser";
 import { api } from "@/convex/_generated/api";
 
 const convex = new ConvexHttpClient(
-  process.env.NEXT_PUBLIC_CONVEX_URL!
+  process.env.NEXT_PUBLIC_CONVEX_URL || "https://placeholder.convex.cloud"
 );
 
 const liveblocks = new Liveblocks({
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
   }
 
   const userInfo = {
-    name: user.firstName || "Teammeate",
+    name: user.firstName || "Teammate",
     picture: user.imageUrl,
   };
 

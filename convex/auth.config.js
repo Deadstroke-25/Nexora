@@ -1,7 +1,7 @@
 export default {
   providers: [
     {
-      domain: "https://just-mastodon-0.clerk.accounts.dev",
+      domain: process.env.CLERK_JWT_ISSUER_DOMAIN || "https://light-grub-93.clerk.accounts.dev",
       applicationID: "convex",
     },
   ]
